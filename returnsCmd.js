@@ -1,7 +1,8 @@
 var returnsCalc = require('./returnsCalc');
 var quandl = require('./quandlAPI.js');
+var commandLineArgs = require('command-line-args');
 
-// First Argument is Command
+// First two arguments are command
 if (process.argv.length < 3) {
     // LEts Run the AAPL Reference
     var fs = require('fs');
@@ -18,15 +19,23 @@ if (process.argv.length < 3) {
 }
 else {
     // Arguments DataSet APIKey Start End
-    // Could use a command line argument module here but sufficient for this not to
-    if (process.argv.length > 2) {
-        quandl.apiKey(process.argv[3]);
+    var cli = commandLineArgs([
+        { name: 'dataset', type: String, defaultOption: true },
+        { name: 'apikey', alias: 'k', type: String },
+        { name: 'startDate', alias: 's', type: String },
+        { name: 'endDate', alias: 'e', type: String },
+        { name: 'period', alias: 'p', type: Number },
+        { name: 'periodType', alias: 'pt', type: String }
+    ]);
+
+    if (cli.apikey) {
+        quandl.apiKey = cli.apikey;
     }
-    if (process.argv.length > 3) {
-        quandl.startDate(new Date(process.argv[4]));
+    if (cli.startDate) {
+        quandl.startDate = new Date(cli.startDate);
     }
-    if (process.argv.length > 4) {
-        quandl.endDate(new Date(process.argv[5]));
+    if (cli.endDate) {
+        quandl.endDate = new Date(cli.endDate);
     }
 
     // API is ES2015 Promise Based

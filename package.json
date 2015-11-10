@@ -22,6 +22,8 @@
     "jasmine-node": "^1.14.5"
   },
   "dependencies": {
-    "concat-stream": "^1.5.1"
+    "command-line-args": "^2.1.0",
+    "concat-stream": "^1.5.1",
+    "moment": "^2.10.6"
   }
 }
