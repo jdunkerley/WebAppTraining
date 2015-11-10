@@ -7,7 +7,7 @@
     var endDate = new Date('2014-12-31');
 
     function getDataSetUrl(dataset) {
-        var url = 'https://www.quandl.com/api/v3/datasets/WIKI/' + dataset + '/data.json';
+        var url = 'https://www.quandl.com/api/v3/datasets/WIKI/' + dataset + '.json';
 
         var params = [];
         if (apiKey !== '') {
@@ -20,36 +20,42 @@
             params.push('end_date=' + endDate.toISOString().substring(0, 10));
         }
 
-        return url + (params.length ? '?' + params.join('&') : '');
+        url = url + (params.length ? '?' + params.join('&') : '');
+        return url;
     }
 
     module.exports = function(dataset) {
+        var url = getDataSetUrl(dataset);
         return new Promise(function(resolve, reject) {
-            https.get(getDataSetUrl(dataset), function(res) {
-                res.pipe(function(buffer) {
-                    resolve(JSON.parse(buffer.toString()));
+            https.get(url,
+                function(res) {
+                    res.on('error', function(e) {
+                        reject(e);
+                    });
+
+                    res.pipe(concat(function(buffer) {
+                        resolve(JSON.parse(buffer.toString()));
+                    }));
+                }).on('error', function(e) {
+                    reject(e);
                 });
-            }).on('error', function(e) {
-                reject(e);
-            });
         });
     };
 
-    module.getDataSetUrl = getDataSetUrl;
-
-    module.apiKey = function(_apiKey) {
+    module.exports.getDataSetUrl = getDataSetUrl;
+    module.exports.apiKey = function(_apiKey) {
         if (!arguments.length) {
             return apiKey;
         }
         apiKey = _apiKey;
     };
-    module.startDate = function(_startDate) {
+    module.exports.startDate = function(_startDate) {
         if (!arguments.length) {
             return startDate;
         }
         startDate = _startDate;
     };
-    module.endDate = function(_endDate) {
+    module.exports.endDate = function(_endDate) {
         if (!arguments.length) {
             return endDate;
         }

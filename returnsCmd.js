@@ -1,6 +1,8 @@
 var returnsCalc = require('./returnsCalc');
+var quandl = require('./quandlAPI.js');
 
-if (arguments.length === 1) {
+// First Argument is Command
+if (process.argv.length < 3) {
     // LEts Run the AAPL Reference
     var fs = require('fs');
 
@@ -13,4 +15,25 @@ if (arguments.length === 1) {
         var minMax = returnsCalc(jsonObj, 'Adj. Close');
         console.log(minMax);
     });
+}
+else {
+// Arguments DataSet APIKey Start End
+    if (process.argv.length > 2) {
+        quandl.apiKey = process.argv[3];
+    }
+    if (process.argv.length > 3) {
+        quandl.startDate = new Date(process.argv[4]);
+    }
+    if (process.argv.length > 4) {
+        quandl.endDate = new Date(process.argv[5]);
+    }
+
+    quandl(process.argv[2])
+        .then(function(jsonObj) {
+            var minMax = returnsCalc(jsonObj, 'Adj. Close');
+            console.log(minMax);
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
 }
