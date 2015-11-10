@@ -17,7 +17,8 @@ if (process.argv.length < 3) {
     });
 }
 else {
-// Arguments DataSet APIKey Start End
+    // Arguments DataSet APIKey Start End
+    // Could use a command line argument module here but sufficient for this not to
     if (process.argv.length > 2) {
         quandl.apiKey = process.argv[3];
     }
@@ -28,6 +29,7 @@ else {
         quandl.endDate = new Date(process.argv[5]);
     }
 
+    // API is ES2015 Promise Based
     quandl(process.argv[2])
         .then(function(jsonObj) {
             var minMax = returnsCalc(jsonObj, 'Adj. Close');
