@@ -20,13 +20,13 @@ else {
     // Arguments DataSet APIKey Start End
     // Could use a command line argument module here but sufficient for this not to
     if (process.argv.length > 2) {
-        quandl.apiKey = process.argv[3];
+        quandl.apiKey(process.argv[3]);
     }
     if (process.argv.length > 3) {
-        quandl.startDate = new Date(process.argv[4]);
+        quandl.startDate(new Date(process.argv[4]));
     }
     if (process.argv.length > 4) {
-        quandl.endDate = new Date(process.argv[5]);
+        quandl.endDate(new Date(process.argv[5]));
     }
 
     // API is ES2015 Promise Based
