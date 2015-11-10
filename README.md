@@ -9,3 +9,5 @@ Command line arguments are:
  - APIKey (defaults to anonymous request)
  - StartDate (defaults to 1 Jan 2010)
  - EndDate (defaults to 31 Dec 2014)
+ - Period (defualts to 7)
+ - PeriodType (defaults to days)

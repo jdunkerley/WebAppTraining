@@ -24,8 +24,8 @@ else {
         { name: 'apikey', alias: 'k', type: String, description: 'Quandl API Key (optional but limited anonymous requests)' },
         { name: 'startDate', alias: 's', type: String, description: 'Start Date in yyyy-MM-dd (defaults to 2010-01-01)' },
         { name: 'endDate', alias: 'e', type: String, description: 'End Date in yyyy-MM-dd (defaults to 2014-12-31)' },
-        { name: 'period', alias: 'p', type: Number, description: 'Number of Periods (defaults to 7)' },
-        { name: 'periodType', alias: 't', type: String, description: 'Period Type (defaults to days)' },
+        { name: 'period', alias: 'p', type: Number, description: 'Number of Periods (defaults to 1)' },
+        { name: 'periodType', alias: 't', type: String, description: 'Period Type [days, weeks, months, years] (defaults to weeks)' },
         { name: 'help', alias: 'h', type: Boolean }
     ]);
 
@@ -46,6 +46,12 @@ else {
     }
     if (options.endDate) {
         quandl.endDate(new Date(options.endDate));
+    }
+    if (options.period) {
+        returnsCalc.period(options.period);
+    }
+    if (options.periodType) {
+        returnsCalc.periodType(options.periodType);
     }
 
     // API is ES2015 Promise Based

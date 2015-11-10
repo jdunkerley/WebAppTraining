@@ -1,6 +1,11 @@
 (function() {
     'use strict';
 
+    var moment = require('moment');
+
+    var period = 1;
+    var periodType = 'weeks';
+
     function getTimeSeries(jsonObj, fieldName) {
         var columnId = jsonObj.dataset.column_names.indexOf(fieldName);
         return jsonObj.dataset.data.map(function(d) {
@@ -12,9 +17,8 @@
     }
 
     function getStartDate(date) {
-        var result = new Date(date);
-        result.setDate(date.getDate() - 7);
-        return result;
+        var m = moment(new Date(date));
+        return m.subtract(period, periodType).toDate();
     }
 
     function addStartAndReturn(d, i, data) {
@@ -60,4 +64,16 @@
     module.exports.getStartDate = getStartDate;
     module.exports.addStartAndReturn = addStartAndReturn;
     module.exports.getMinAndMax = getMinAndMax;
+    module.exports.period = function(_period) {
+        if (!arguments.length) {
+            return period;
+        }
+        period = _period;
+    };
+    module.exports.periodType = function(_periodType) {
+        if (!arguments.length) {
+            return periodType;
+        }
+        periodType = _periodType;
+    };
 }());
