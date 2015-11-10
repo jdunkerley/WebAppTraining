@@ -1,4 +1,4 @@
-/* global describe */
+/* global describe, it, expect */
 describe('getStartDate', function() {
     var returnsCalc = require('../returnsCalc');
 
