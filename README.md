@@ -11,3 +11,7 @@ Command line arguments are:
  - EndDate (defaults to 31 Dec 2014)
  - Period (defualts to 7)
  - PeriodType (defaults to days)
+
+* Run `npm install` to download the dependencies needed.
+* To run the unit tests use `jasmine` or for continuous testing run `jasmine-node --autotest .`
+* To run the mock up site run `npm start`

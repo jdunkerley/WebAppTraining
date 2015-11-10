@@ -4,7 +4,8 @@
   "description": "Web App training creating a simple Quandl Web App",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "start": "http-server site/ -a localhost -p 8080 -c-1"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/jdunkerley/WebAppTraining#readme",
   "devDependencies": {
     "eslint": "^1.9.0",
+    "http-server": "^0.8.5",
     "jasmine": "^2.3.2",
     "jasmine-node": "^1.14.5"
   },
