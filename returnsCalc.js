@@ -1,8 +1,6 @@
 (function() {
     'use strict';
 
-    var fs = require('fs');
-
     function getTimeSeries(jsonObj, fieldName) {
         var columnId = jsonObj.dataset.column_names.indexOf(fieldName);
         return jsonObj.dataset.data.map(function(d) {
