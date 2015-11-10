@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/jdunkerley/WebAppTraining/issues"
   },
-  "homepage": "https://github.com/jdunkerley/WebAppTraining#readme"
+  "homepage": "https://github.com/jdunkerley/WebAppTraining#readme",
+  "devDependencies": {
+    "eslint": "^1.9.0",
+    "jasmine": "^2.3.2",
+    "jasmine-node": "^1.14.5"
+  }
 }
