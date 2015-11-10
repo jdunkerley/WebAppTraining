@@ -4,7 +4,7 @@
   "description": "Web App training creating a simple Quandl Web App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/jdunkerley/WebAppTraining/issues"
   },
-  "homepage": "https://github.com/jdunkerley/WebAppTraining#readme"
+  "homepage": "https://github.com/jdunkerley/WebAppTraining#readme",
+  "devDependencies": {
+    "eslint": "^1.9.0",
+    "jasmine": "^2.3.2",
+    "jasmine-node": "^1.14.5"
+  },
+  "dependencies": {
+    "command-line-args": "^2.1.0",
+    "concat-stream": "^1.5.1",
+    "moment": "^2.10.6"
+  }
 }
