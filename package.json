@@ -22,5 +22,8 @@
     "http-server": "^0.8.5",
     "jasmine": "^2.3.2",
     "jasmine-node": "^1.14.5"
+  },
+  "dependencies": {
+    "concat-stream": "^1.5.1"
   }
 }

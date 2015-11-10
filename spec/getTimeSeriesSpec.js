@@ -1,4 +1,4 @@
-/* global describe */
+/* global describe, it, expect */
 describe('getTimeSeries', function() {
     var returnsCalc = require('../returnsCalc');
 

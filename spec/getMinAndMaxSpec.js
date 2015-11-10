@@ -1,4 +1,4 @@
-/* global describe */
+/* global describe, it, expect */
 describe('getMinAndMax', function() {
     var returnsCalc = require('../returnsCalc');
 
