@@ -1,0 +1,24 @@
+{
+  "name": "web-app-training",
+  "version": "1.0.0",
+  "description": "Web App training creating a simple Quandl Web App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdunkerley/WebAppTraining.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdunkerley/WebAppTraining/issues"
+  },
+  "homepage": "https://github.com/jdunkerley/WebAppTraining#readme",
+  "devDependencies": {
+    "eslint": "^1.9.0",
+    "jasmine": "^2.3.2",
+    "jasmine-node": "^1.14.5"
+  }
+}
