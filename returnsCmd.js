@@ -25,21 +25,30 @@ else {
         { name: 'startDate', alias: 's', type: String },
         { name: 'endDate', alias: 'e', type: String },
         { name: 'period', alias: 'p', type: Number },
-        { name: 'periodType', alias: 'pt', type: String }
+        { name: 'periodType', alias: 't', type: String },
+        { name: 'help', alias: 'h', type: Boolean }
     ]);
 
-    if (cli.apikey) {
-        quandl.apiKey = cli.apikey;
+    var options = cli.parse();
+    console.log(options);
+
+    if (options.help) {
+        console.log(cli.getUsage());
+        return;
     }
-    if (cli.startDate) {
-        quandl.startDate = new Date(cli.startDate);
+
+    if (options.apikey) {
+        quandl.apiKey(options.apikey);
     }
-    if (cli.endDate) {
-        quandl.endDate = new Date(cli.endDate);
+    if (options.startDate) {
+        quandl.startDate(new Date(options.startDate));
+    }
+    if (options.endDate) {
+        quandl.endDate(new Date(options.endDate));
     }
 
     // API is ES2015 Promise Based
-    quandl(process.argv[2])
+    quandl(options.dataset)
         .then(function(jsonObj) {
             var minMax = returnsCalc(jsonObj, 'Adj. Close');
             console.log(minMax);
