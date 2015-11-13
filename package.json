@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "start": "http-server site/ -a localhost -p 8080 -c-1"
+    "start": "http-server app/ -a localhost -p 8080 -c-1"
   },
   "repository": {
     "type": "git",

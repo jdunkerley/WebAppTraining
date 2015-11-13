@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quandl Wiki Browser</title>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="app.css" />
+  <script src="js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+  <div class="fixed">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">Quandl Wikki Browser</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon">
+          <a href="#">
+            <span>Menu</span>
+          </a>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><a href="#">Search</a></li>
+          <li>
+            <div class="large-12 columns">
+              <input type="text" placeholder="Stock ticker" />
+            </div>
+          </li>
+        </ul>
+
+
+      </section>
+    </nav>
+  </div>
+
+<br>
+
+  <div ng-view></div>
+  <script src="app.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+
+</html>
