@@ -1,6 +1,5 @@
-<div class="row">
-        <div class="small-6 large-3 columns" ng-repeat="dataSet in dataCtrl.dataSets">
-            <quandl-panel></quandl-panel>
-        </div>
+<div class="row" id="quandl-div" data-equalizer>
+    <div class="small-12 medium-6 large-4 columns" ng-repeat="dataSet in dataCtrl.dataSets">
+        <quandl-panel dataset="dataSet"></quandl-panel>
+    </div>
 </div>
-
