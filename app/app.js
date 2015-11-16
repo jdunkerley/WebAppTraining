@@ -14,6 +14,11 @@ config(['$routeProvider', function ($routeProvider) {
             controller: 'DataListCtrl',
             controllerAs: 'dataCtrl'
         })
+        .when('/:query', {
+            templateUrl: 'list/data-list.html',
+            controller: 'DataListCtrl',
+            controllerAs: 'dataCtrl'
+        })
         .when('/stock/:code', {
             templateUrl: 'details/data-details.html',
             controller: 'DataDetailsCtrl',

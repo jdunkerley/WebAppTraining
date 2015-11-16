@@ -12,7 +12,7 @@
 
 <body>
 <div class="fixed">
-    <nav class="top-bar" data-topbar role="navigation" style="background: #008CBA">
+    <nav class="top-bar" data-topbar role="navigation" style="background: #008CBA" ng-controller="DataSearchCtrl as search">
         <ul class="title-area">
             <li class="name">
                 <h1><a href="#/">Quandl Wikki Browser</a></h1>
@@ -31,12 +31,12 @@
             </ul>
             <!-- Right Nav Section -->
             <ul class="right">
-                <!--<li><a href="#" style="background: #008CBA">Search</a></li>-->
-                <!--<li>-->
-                    <!--<div class="large-12 columns" style="background: #008CBA">-->
-                        <!--<input type="text" placeholder="search"/>-->
-                    <!--</div>-->
-                <!--</li>-->
+                <li><a href="/#/{{search.query}}"  style="background: #008CBA">Search</a></li>
+                <li>
+                    <div class="large-12 columns" style="background: #008CBA">
+                        <input type="text" placeholder="search" ng-keypress="search.goToQueryPage($event)" ng-model="search.query"/>
+                    </div>
+                </li>
             </ul>
 
 
