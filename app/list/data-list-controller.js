@@ -16,7 +16,7 @@ angular.module('dataControllers', ['quandlServices'])
             });
         };
 
-        var dataSetsJSON = dataSetRetriever();
+        dataSetRetriever();
 
 
     }]);
